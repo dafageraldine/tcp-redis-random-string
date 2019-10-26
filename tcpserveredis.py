@@ -1,13 +1,13 @@
 import socket,random,string,redis 
-
-s = socket.socket()         
+         
 ip = '127.0.0.2' 
 port = 3128
+s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 s.bind((ip, port))        
 s.listen(5)
 conn,addr = s.accept()
 
-########GENERATINGRANDOMSTRING
+########GeneratingRandomString
 def randomString(stringLength=64):
 	letters = string.ascii_letters
 	return ''.join(random.choice(letters) for i in range(stringLength))	
@@ -23,7 +23,7 @@ r.set("serversend",kirim)
 conn.send(kirim.encode())
 print ("random string transmitted succesfully\n")
 
-########receivingstringfromclient
+########ReceivingStringFromClient
 pesan = conn.recv(100)
 print("string from client",pesan,"\n")
 
