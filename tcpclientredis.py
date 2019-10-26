@@ -6,13 +6,13 @@ s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 s.connect((ip,port))
 print("connected to the server\n")
 
-#################receivingrandomstring
+#################ReceivingRandomString
 pesan = s.recv(100)
 print("random string from server",pesan,"\n")
 
-#################resendthestring
+#################ResendTheString
 s.send(pesan)
 
-#################feedbacktrueorfalsefromserver
+#################FeedbackTrueOrFalseFromServer
 pesan2 = s.recv(5)
 print(pesan2)
